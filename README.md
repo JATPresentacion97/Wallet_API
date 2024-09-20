@@ -31,7 +31,7 @@ Ensure you have the following installed:
 
 ### Setting Up the Project
 
-**1. **Clone the repository**:**
+**1. Clone the repository:**
 
    ```bash
    git clone https://github.com/JATPresentacion97/Wallet_Backend.git
