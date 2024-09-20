@@ -31,13 +31,13 @@ Ensure you have the following installed:
 
 ### Setting Up the Project
 
-1. **Clone the repository**:
+**1. **Clone the repository**:**
 
    ```bash
    git clone https://github.com/JATPresentacion97/Wallet_Backend.git
    cd Wallet_Backend
    
-2. Build the project:
+**2. Build the project:**
 
 Run the following Gradle command to build the project:
 
@@ -45,7 +45,7 @@ bash
 
 ./gradlew build
 
-3. Run the application:
+**3. Run the application:**
 
 You can run the Spring Boot application using the following command:
 
@@ -56,12 +56,13 @@ bash
 The server will start on http://localhost:8080.
 
 **API Endpoints**
-1. Get Balance
+
+**1. Get Balance**
 URL: /api/v1/wallet/{accountId}/balance
 Method: GET
 Description: Fetch the balance for a specific account.
 
-3. Transfer Funds
+**3. Transfer Funds**
 URL: /api/v1/wallet/transfer
 Method: POST
 Description: Transfer funds to/from an account.
@@ -74,12 +75,12 @@ json
   "amount": 100.00
 }
 
-4. List Transactions
+**4. List Transactions**
 URL: /api/v1/wallet/{accountId}/transactions
 Method: GET
 Description: List all transactions for a specific account.
 
-5. Create Account (Optional)
+**5. Create Account (Optional)**
 URL: /api/v1/wallet/create
 Method: POST
 Description: Create a new account.
