@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -19,6 +20,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+@SpringBootTest
 public class WalletServiceTest {
 
     @Mock
@@ -110,8 +112,20 @@ public class WalletServiceTest {
     @Test
     public void testListTransactions() {
         // Arrange
-        Transaction transaction1 = new Transaction(1L, 1L, BigDecimal.valueOf(50.00), "CREDIT", LocalDateTime.now());
-        Transaction transaction2 = new Transaction(2L, 1L, BigDecimal.valueOf(30.00), "DEBIT", LocalDateTime.now());
+        Transaction transaction1 = new Transaction();
+        transaction1.setId(1L);
+        transaction1.setAccountId(1L);
+        transaction1.setAmount(BigDecimal.valueOf(50.00));
+        transaction1.setType("CREDIT");
+        transaction1.setTimestamp(LocalDateTime.now());
+
+        Transaction transaction2 = new Transaction();
+        transaction2.setId(2L);
+        transaction2.setAccountId(1L);
+        transaction2.setAmount(BigDecimal.valueOf(30.00));
+        transaction2.setType("DEBIT");
+        transaction2.setTimestamp(LocalDateTime.now());
+
         when(transactionRepository.findByAccountId(1L)).thenReturn(Arrays.asList(transaction1, transaction2));
 
         // Act
@@ -122,6 +136,7 @@ public class WalletServiceTest {
         assertEquals(BigDecimal.valueOf(50.00), transactions.get(0).getAmount());
         assertEquals(BigDecimal.valueOf(30.00), transactions.get(1).getAmount());
     }
+
 
     @Test
     public void testCreateAccount() {

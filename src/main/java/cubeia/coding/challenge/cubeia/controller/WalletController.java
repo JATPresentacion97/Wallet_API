@@ -18,9 +18,9 @@ public class WalletController {
     private WalletService walletService;
 
     @GetMapping("/balance/{accountId}")
-    public ResponseEntity<BigDecimal> getBalance(@PathVariable Long accountId) {
+    public String getBalance(@PathVariable Long accountId) {
         BigDecimal balance = walletService.getBalance(accountId);
-        return ResponseEntity.ok(balance);
+        return String.format("%.2f", balance); // Ensure it's formatted to two decimal places
     }
 
     @PostMapping("/transfer")

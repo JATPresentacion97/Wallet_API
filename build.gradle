@@ -15,8 +15,6 @@ repositories {
 dependencies {
 	// Spring Boot dependencies
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-
-	// For JPA/Hibernate and H2 in-memory database
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	runtimeOnly 'com.h2database:h2'
 
@@ -24,10 +22,10 @@ dependencies {
 	// provided 'org.projectlombok:lombok'
 	// annotationProcessor 'org.projectlombok:lombok'
 
+	// Testing dependencies
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.mockito:mockito-core'
-	testImplementation 'org.mockito:mockito-junit-jupiter'
-
+	testImplementation 'org.mockito:mockito-junit-jupiter:4.0.0'
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2' // Replacing with junit-jupiter
 }
 
 test {
